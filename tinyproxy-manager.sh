@@ -99,28 +99,23 @@ if [ ! -f "$TINYPROXY_CONFIG" ]; then
 
   # Pre-Checks system requirements
   function install-the-app() {
-    if { [ "$DISTRO" == "ubuntu" ] || [ "$DISTRO" == "debian" ] || [ "$DISTRO" == "raspbian" ] || [ "$DISTRO" == "pop" ] || [ "$DISTRO" == "kali" ] || [ "$DISTRO" == "linuxmint" ] || [ "$DISTRO" == "fedora" ] || [ "$DISTRO" == "centos" ] || [ "$DISTRO" == "rhel" ] || [ "$DISTRO" == "arch" ] || [ "$DISTRO" == "manjaro" ] || [ "$DISTRO" == "alpine" ] || [ "$DISTRO" == "freebsd" ]; }; then
-      if { [ ! -x "$(command -v curl)" ]; }; then
-        if { [ "$DISTRO" == "ubuntu" ] || [ "$DISTRO" == "debian" ] || [ "$DISTRO" == "raspbian" ] || [ "$DISTRO" == "pop" ] || [ "$DISTRO" == "kali" ] || [ "$DISTRO" == "linuxmint" ]; }; then
-          apt-get update
-          apt-get install tinyproxy -y
-        elif { [ "$DISTRO" == "fedora" ] || [ "$DISTRO" == "centos" ] || [ "$DISTRO" == "rhel" ]; }; then
-          yum update -y
-          yum install tinyproxy -y
-        elif { [ "$DISTRO" == "arch" ] || [ "$DISTRO" == "manjaro" ]; }; then
-          pacman -Syu
-          pacman -Syu --noconfirm tinyproxy
-        elif [ "$DISTRO" == "alpine" ]; then
-          apk update
-          apk add tinyproxy
-        elif [ "$DISTRO" == "freebsd" ]; then
-          pkg update
-          pkg install tinyproxy
-        fi
+    if { [ ! -x "$(command -v tinyproxy)" ]; }; then
+      if { [ "$DISTRO" == "ubuntu" ] || [ "$DISTRO" == "debian" ] || [ "$DISTRO" == "raspbian" ] || [ "$DISTRO" == "pop" ] || [ "$DISTRO" == "kali" ] || [ "$DISTRO" == "linuxmint" ]; }; then
+        apt-get update
+        apt-get install tinyproxy -y
+      elif { [ "$DISTRO" == "fedora" ] || [ "$DISTRO" == "centos" ] || [ "$DISTRO" == "rhel" ]; }; then
+        yum update -y
+        yum install tinyproxy -y
+      elif { [ "$DISTRO" == "arch" ] || [ "$DISTRO" == "manjaro" ]; }; then
+        pacman -Syu
+        pacman -Syu --noconfirm tinyproxy
+      elif [ "$DISTRO" == "alpine" ]; then
+        apk update
+        apk add tinyproxy
+      elif [ "$DISTRO" == "freebsd" ]; then
+        pkg update
+        pkg install tinyproxy
       fi
-    else
-      echo "Error: $DISTRO not supported."
-      exit
     fi
   }
 
@@ -163,6 +158,8 @@ else
     done
     case $USER_OPTIONS in
     1)
+      rm -f $TINYPROXY_MANGER
+      rm -f $TINYPROXY_CONFIG
       if { [ "$DISTRO" == "ubuntu" ] || [ "$DISTRO" == "debian" ] || [ "$DISTRO" == "raspbian" ] || [ "$DISTRO" == "pop" ] || [ "$DISTRO" == "kali" ] || [ "$DISTRO" == "linuxmint" ]; }; then
         apt-get update && apt-get remove --purge tinyproxy -y
       elif { [ "$DISTRO" == "fedora" ] || [ "$DISTRO" == "centos" ] || [ "$DISTRO" == "rhel" ]; }; then
