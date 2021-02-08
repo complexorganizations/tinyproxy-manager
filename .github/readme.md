@@ -15,37 +15,12 @@ It's finally time to execute the script
 bash /usr/local/bin/tinyproxy-manager.sh
 ```
 
+##### Use [WireGuard-Manager](https://github.com/complexorganizations/wireguard-manager) instead, This repository is no longer maintained. ***Archived***
+
 ### Features
 - Install tiny proxy
 - Uninstall tiny proxy
 - Secure tiny proxy
-
----
-### Q&A
-
-How
-- 
-- 
-- 
-- 
-
-Which
-- 
-- 
-- 
--
-
-Is
-- 
-- 
-- 
--
-
-How 
-- 
-- 
-- 
--
 
 ---
 ### Author
