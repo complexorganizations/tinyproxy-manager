@@ -1,6 +1,20 @@
 ### Tinyproxy Manager
 
 ---
+### Installition
+Lets first use curl and save the file in `/usr/local/bin/`
+```
+curl https://raw.githubusercontent.com/complexorganizations/tinyproxy-manager/main/tinyproxy-manager.sh --create-dirs -o /usr/local/bin/tinyproxy-manager.sh
+```
+Then let's make the script user executable (Optional)
+```
+chmod +x /usr/local/bin/wireguard-manager.sh
+```
+It's finally time to execute the script
+```
+bash /usr/local/bin/tinyproxy-manager.sh
+```
+
 ### Features
 - 
 - 
