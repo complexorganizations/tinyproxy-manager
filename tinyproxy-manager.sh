@@ -129,8 +129,8 @@ if [ ! -f "$TINYPROXY_CONFIG" ]; then
 
   function service-manager() {
     if { [ "$DISTRO" == "ubuntu" ] || [ "$DISTRO" == "debian" ] || [ "$DISTRO" == "raspbian" ] || [ "$DISTRO" == "pop" ] || [ "$DISTRO" == "kali" ] || [ "$DISTRO" == "linuxmint" ] || [ "$DISTRO" == "fedora" ] || [ "$DISTRO" == "centos" ] || [ "$DISTRO" == "rhel" ] || [ "$DISTRO" == "arch" ] || [ "$DISTRO" == "manjaro" ] || [ "$DISTRO" == "alpine" ] || [ "$DISTRO" == "freebsd" ]; }; then
-      sed -i 's/Allow 127.0.0.1/Allow $FIRST_QUESTION/' $TINYPROXY_CONFIG
-      sed -i 's/Port 8888/Port $SECOND_QUESTION/' $TINYPROXY_CONFIG
+      sed -i "s|Allow 127.0.0.1|Allow $FIRST_QUESTION|" $TINYPROXY_CONFIG
+      sed -i "s|Port 8888|Port $SECOND_QUESTION|" $TINYPROXY_CONFIG
     elif pgrep systemd-journal; then
       systemctl enable tinyproxy
       systemctl restart tinyproxy
