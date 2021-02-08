@@ -1,7 +1,7 @@
 ### Tinyproxy Manager
 
 ---
-### Installition
+### Installation
 Lets first use curl and save the file in `/usr/local/bin/`
 ```
 curl https://raw.githubusercontent.com/complexorganizations/tinyproxy-manager/main/tinyproxy-manager.sh --create-dirs -o /usr/local/bin/tinyproxy-manager.sh
