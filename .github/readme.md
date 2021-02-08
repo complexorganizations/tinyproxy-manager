@@ -8,7 +8,7 @@ curl https://raw.githubusercontent.com/complexorganizations/tinyproxy-manager/ma
 ```
 Then let's make the script user executable (Optional)
 ```
-chmod +x /usr/local/bin/wireguard-manager.sh
+chmod +x /usr/local/bin/tinyproxy-manager.sh
 ```
 It's finally time to execute the script
 ```
